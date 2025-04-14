@@ -119,10 +119,8 @@ navigationLinks.forEach(nav => {
     pages.forEach(page => {
       if (page.dataset.page.toLowerCase() === targetPage) {
         page.classList.add("active");
-        console.log(page.dataset.page.toLowerCase() + " " + targetPage + " active");
       } else {
         page.classList.remove("active");
-        console.log(page.dataset.page.toLowerCase() + " " + targetPage + " not active");
       }
     });
 
@@ -130,10 +128,8 @@ navigationLinks.forEach(nav => {
     navigationLinks.forEach(link => {
       if (link.innerHTML.toLowerCase() === targetPage) {
         link.classList.add("active");
-        console.log(link.innerHTML.toLowerCase() + " " + targetPage + " active");
       } else {
         link.classList.remove("active");
-        console.log(link.innerHTML.toLowerCase() + " " + targetPage + " not active");
       }
     });
 
