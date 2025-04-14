@@ -117,7 +117,7 @@ navigationLinks.forEach(nav => {
 
     // Update pages
     pages.forEach(page => {
-      if (page.dataset.page === targetPage) {
+      if (page.dataset.page.toLowerCase() === targetPage) {
         page.classList.add("active");
       } else {
         page.classList.remove("active");
