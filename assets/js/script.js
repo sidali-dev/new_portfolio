@@ -143,10 +143,9 @@ const pages = document.querySelectorAll("[data-page]");
 // add event to all nav link
 for (let i = 0; i < navigationLinks.length; i++) {
   navigationLinks[i].addEventListener("click", function () {
-    const targetPage = this.innerHTML.trim().toLowerCase();
-    
+
     for (let i = 0; i < pages.length; i++) {
-      if (targetPage === pages[i].dataset.page) {
+      if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
         pages[i].classList.add("active");
         navigationLinks[i].classList.add("active");
         window.scrollTo(0, 0);
@@ -155,5 +154,6 @@ for (let i = 0; i < navigationLinks.length; i++) {
         navigationLinks[i].classList.remove("active");
       }
     }
+
   });
 }
