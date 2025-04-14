@@ -61,19 +61,24 @@ const selectItems = document.querySelectorAll("[data-select-item]");
 const selectValue = document.querySelector("[data-selecct-value]");
 const filterBtn = document.querySelectorAll("[data-filter-btn]");
 
+// Only add event listener if select element exists
 if (select) {
-  select.addEventListener("click", function () { elementToggleFunc(this); });
+  select.addEventListener("click", function () { 
+    elementToggleFunc(this); 
+  });
 }
 
-// add event in all select items
-if (selectItems.length > 0) {
+// Only add event listeners if selectItems exist
+if (selectItems && selectItems.length > 0) {
   for (let i = 0; i < selectItems.length; i++) {
     selectItems[i].addEventListener("click", function () {
       let selectedValue = this.innerText.toLowerCase();
       if (selectValue) {
         selectValue.innerText = this.innerText;
       }
-      elementToggleFunc(select);
+      if (select) {
+        elementToggleFunc(select);
+      }
       filterFunc(selectedValue);
     });
   }
