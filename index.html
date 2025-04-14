@@ -10,7 +10,7 @@
   <!--
     - favicon
   -->
-  <link rel="shortcut icon" href="./assets/images/logo.png" type="image/png">
+  <link rel="shortcut icon" href="./assets/images/my-avatar.png" type="image/png">
 
   <!--
     - custom css link
@@ -730,6 +730,25 @@
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <script>
+    console.log('Navigation script loaded');
+
+    // page navigation variables
+    const navigationLinks = document.querySelectorAll("[data-nav-link]");
+    console.log('Found nav links:', navigationLinks.length);
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const navbar = document.querySelector('.navbar-list');
+        console.log('Navbar found:', navbar !== null);
+        
+        navbar.addEventListener('click', (e) => {
+            console.log('Clicked element:', e.target);
+            const navButton = e.target.closest('[data-nav-link]');
+            console.log('Nearest nav button:', navButton);
+        });
+    });
+  </script>
 
 </body>
 
