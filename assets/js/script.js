@@ -110,20 +110,29 @@ for (let i = 0; i < formInputs.length; i++) {
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
 const pages = document.querySelectorAll("[data-page]");
 
-// add event to all nav link
-for (let i = 0; i < navigationLinks.length; i++) {
-  navigationLinks[i].addEventListener("click", function () {
+// add event to all nav links
+navigationLinks.forEach(nav => {
+  nav.addEventListener("click", function () {
+    const targetPage = this.innerHTML.toLowerCase();
 
-    for (let j = 0; j < pages.length; j++) {
-      if (this.innerHTML.toLowerCase() === pages[j].dataset.page) {
-        pages[j].classList.add("active");
-        navigationLinks[j].classList.add("active");
-        window.scrollTo(0, 0);
+    // Update pages
+    pages.forEach(page => {
+      if (page.dataset.page === targetPage) {
+        page.classList.add("active");
       } else {
-        pages[j].classList.remove("active");
-        navigationLinks[j].classList.remove("active");
+        page.classList.remove("active");
       }
-    }
+    });
 
+    // Update navigation links
+    navigationLinks.forEach(link => {
+      if (link.innerHTML.toLowerCase() === targetPage) {
+        link.classList.add("active");
+      } else {
+        link.classList.remove("active");
+      }
+    });
+
+    window.scrollTo(0, 0);
   });
-}
+});
